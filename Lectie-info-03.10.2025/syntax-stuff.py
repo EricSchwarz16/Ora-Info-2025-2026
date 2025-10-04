@@ -11,7 +11,7 @@
 age = 20
 
 #status = what if says if the condition is true
-#else status = waht the else block returns
+#else status = what the else block returns
 status = "Adult" if age >= 20 else "Minor"
 
 print(status)
@@ -41,7 +41,7 @@ while cnt < 10:
 
 # type hints
 def computePriceAfterDiscount(val: float) -> float:
-    # : type -> type checking pentru parametrii
+    # : type -> type checking pentru parametri
     # : type -> type checking pentru valoarea returnata
     return val * 0.8
 

@@ -21,11 +21,11 @@ lista_numere.append(32)
 
 print(lista_numere)
 
-lista_numere.remove(3) # erase la prima aparitie a valorii date ca parametru
+lista_numere.remove(3) # stergere la prima aparitie a valorii date ca parametru
 
 print(lista_numere)
 
-lista_numere.pop() # remove la ultimul element
+lista_numere.pop() # scoate ultimul element
 
 print(lista_numere)
 
@@ -65,7 +65,7 @@ def isVowel(litera) -> bool:
 cuv : str = "facem probleme de pe pbinfo cu consoane nnnccs"
 
 curr_length = 0
-max_lenght = 0
+max_length = 0
 
 for letter in cuv:
     if not isVowel(letter) and letter != ' ':
@@ -73,15 +73,15 @@ for letter in cuv:
     else:
         curr_length = 0
     
-    max_lenght = max(max_lenght, curr_length)
+    max_length = max(max_length, curr_length)
 
-print(max_lenght)
+print(max_length)
 
 print(cuv.find("p", 7))
 
 # dict -> map in cpp
 """
- tine minte perechi de tipul keie, valoare
+ tine minte perechi de tipul cheie, valoare
  
  tinem minte pentru fiecare om varsta
  pentru fiecare animal kilogramele
@@ -115,7 +115,7 @@ print(age_dict)
 if 200 in age_dict.keys():
     print(age_dict[200])
     
-# queue : FIFO: first in firs out
+# queue : FIFO: first in first out
 
 from queue import Queue
 
