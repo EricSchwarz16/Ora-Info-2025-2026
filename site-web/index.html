@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KidsMentors - Găsește mentorul perfect pentru copilul tău</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header">
+      <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">
+            <i class="fas fa-graduation-cap"></i>
+            <span>KidsMentors</span>
+          </div>
+          <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Acasă</a></li>
+            <li><a href="#mentors" class="nav-link">Mentori</a></li>
+            <li><a href="#despre" class="nav-link">Despre noi</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+          </ul>
+          <div class="auth-buttons">
+            <button class="btn-login">Conectare</button>
+            <button class="btn-register">Înregistrare</button>
+          </div>
+          <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Găsește mentorul perfect pentru copilul tău</h1>
+          <p>
+            Conectăm copiii cu mentori pasionați care îi ajută să descopere și
+            să dezvolte talentele lor în matematică, știință, programare și
+            multe altele.
+          </p>
+          <div class="hero-buttons">
+            <button class="btn-primary">Găsește un mentor</button>
+            <button class="btn-secondary">Devino mentor</button>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-illustration">
+            <i class="fas fa-user-graduate"></i>
+            <i class="fas fa-book"></i>
+            <i class="fas fa-laptop-code"></i>
+            <i class="fas fa-calculator"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+      <div class="container">
+        <h2>De ce să alegi KidsMentors?</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Siguranță garantată</h3>
+            <p>
+              Toți mentorii sunt verificați și au background-uri în educație sau
+              domenii specializate.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-calendar-alt"></i>
+            </div>
+            <h3>Flexibilitate</h3>
+            <p>
+              Programează sesiuni la orice oră care se potrivește programului
+              copilului tău.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <h3>Progres urmărit</h3>
+            <p>
+              Monitorizează progresul copilului cu rapoarte detaliate și
+              feedback constant.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-heart"></i>
+            </div>
+            <h3>Abordare personalizată</h3>
+            <p>
+              Fiecare copil primește atenție individualizată adaptată stilului
+              său de învățare.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mentors Section -->
+    <section id="mentors" class="mentors">
+      <div class="container">
+        <h2>Mentorii noștri</h2>
+        <div class="mentors-filter">
+          <button class="filter-btn active" data-category="all">Toți</button>
+          <button class="filter-btn" data-category="math">Matematică</button>
+          <button class="filter-btn" data-category="science">Știință</button>
+          <button class="filter-btn" data-category="programming">
+            Programare
+          </button>
+          <button class="filter-btn" data-category="languages">
+            Limbi străine
+          </button>
+        </div>
+        <div class="mentors-grid" id="mentorsGrid">
+          <!-- Mentors will be populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="despre" class="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2>Despre KidsMentors</h2>
+            <p>
+              Suntem o platformă dedicată conectării copiilor cu mentori
+              excepționali care îi pot ghida în călătoria lor educațională.
+              Credem că fiecare copil merită să aibă acces la un mentor
+              inspirant care să îl ajute să își descopere potențialul.
+            </p>
+            <div class="stats">
+              <div class="stat">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Mentori verificați</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">2000+</span>
+                <span class="stat-label">Copii ajutați</span>
+              </div>
+              <div class="stat">
+                <span class="stat-number">95%</span>
+                <span class="stat-label">Satisfacție părinți</span>
+              </div>
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="about-illustration">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+      <div class="container">
+        <h2>Contactează-ne</h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <div class="contact-item">
+              <i class="fas fa-phone"></i>
+              <div>
+                <h4>Telefon</h4>
+                <p>+40 123 456 789</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-envelope"></i>
+              <div>
+                <h4>Email</h4>
+                <p>contact@kidsmentors.ro</p>
+              </div>
+            </div>
+            <div class="contact-item">
+              <i class="fas fa-map-marker-alt"></i>
+              <div>
+                <h4>Adresă</h4>
+                <p>Str. Educației nr. 123, București</p>
+              </div>
+            </div>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <div class="form-group">
+              <input type="text" id="name" placeholder="Numele tău" required />
+            </div>
+            <div class="form-group">
+              <input
+                type="email"
+                id="email"
+                placeholder="Email-ul tău"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <select id="subject" required>
+                <option value="">Selectează subiectul</option>
+                <option value="info">Informații generale</option>
+                <option value="mentor">Vreau să devin mentor</option>
+                <option value="parent">Sunt părinte și caut mentor</option>
+                <option value="support">Suport tehnic</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <textarea
+                id="message"
+                placeholder="Mesajul tău"
+                rows="5"
+                required
+              ></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Trimite mesajul</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="logo">
+              <i class="fas fa-graduation-cap"></i>
+              <span>KidsMentors</span>
+            </div>
+            <p>
+              Conectăm copiii cu mentori excepționali pentru o educație de
+              calitate.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4>Link-uri utile</h4>
+            <ul>
+              <li><a href="#home">Acasă</a></li>
+              <li><a href="#mentors">Mentori</a></li>
+              <li><a href="#despre">Despre noi</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Pentru mentori</h4>
+            <ul>
+              <li><a href="#">Devino mentor</a></li>
+              <li><a href="#">Cerințe</a></li>
+              <li><a href="#">Beneficii</a></li>
+              <li><a href="#">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4>Suport</h4>
+            <ul>
+              <li><a href="#">Centru de ajutor</a></li>
+              <li><a href="#">Termeni și condiții</a></li>
+              <li><a href="#">Politica de confidențialitate</a></li>
+              <li><a href="#">Reclamații</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 KidsMentors. Toate drepturile rezervate.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Conectare</h2>
+        <form id="loginForm">
+          <div class="form-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Parolă" required />
+          </div>
+          <button type="submit" class="btn-primary">Conectare</button>
+          <p class="modal-switch">
+            Nu ai cont? <a href="#" id="showRegister">Înregistrează-te</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="registerModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Înregistrare</h2>
+        <form id="registerForm">
+          <div class="form-group">
+            <input type="text" placeholder="Nume complet" required />
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="form-group">
+            <input type="password" placeholder="Parolă" required />
+          </div>
+          <div class="form-group">
+            <select required>
+              <option value="">Sunt...</option>
+              <option value="parent">Părinte</option>
+              <option value="mentor">Mentor</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary">Înregistrare</button>
+          <p class="modal-switch">
+            Ai deja cont? <a href="#" id="showLogin">Conectează-te</a>
+          </p>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
