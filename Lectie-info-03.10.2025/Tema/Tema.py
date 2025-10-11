@@ -1,6 +1,6 @@
 # 1)diferenta sort si sorted ✅️
-# 2)salvat GitHub
-# 3)tema GitHub pbinfo
+# 2)salvat GitHub ✅️
+# 3)tema GitHub pbinfo ✅️
 
 """ 1)
 sort() in Python function is very similar to sorted() but unlike sorted it returns nothing and
