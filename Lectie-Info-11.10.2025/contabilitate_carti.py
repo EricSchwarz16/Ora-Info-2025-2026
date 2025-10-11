@@ -74,14 +74,6 @@ Alege operatia dorita:
             addBook(nume, autor, pret, editura, bookLibrary)
         
         elif op == 2:
-            print("Cartile disponibile:")
-            for i, carte in enumerate(bookLibrary):
-                print(f"{i + 1}: {carte.nume} {carte.autor} {carte.pret} {carte.editura}")
-            index = int(input("Alege indicele cartii pe care vrei sa o stergi: "))
-            deleteBookByIndex(index - 1, bookLibrary)
-
-
-        elif op == 3:
             print("Cartile disponibile: ")
             for i, carte in enumerate(bookLibrary):
                 print(f"{i + 1}: {carte.nume} {carte.autor} {carte.pret} {carte.editura}")
@@ -91,7 +83,12 @@ Alege operatia dorita:
             editura = input("Noua editura: ")
             updateBookByIndex(index - 1, autor, pret, editura, bookLibrary)
 
-
+        elif op == 3:
+            print("Cartile disponibile:")
+            for i, carte in enumerate(bookLibrary):
+                print(f"{i + 1}: {carte.nume} {carte.autor} {carte.pret} {carte.editura}")
+            index = int(input("Alege indicele cartii pe care vrei sa o stergi: "))
+            deleteBookByIndex(index - 1, bookLibrary)
         
         else:
             printBooks(bookLibrary)
