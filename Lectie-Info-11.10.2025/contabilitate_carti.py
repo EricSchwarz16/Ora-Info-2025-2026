@@ -8,7 +8,7 @@
 
     operatii pe care le putem face
     - adaugam o carte
-    - stergem o carte dupanume
+    - stergem o carte dupa nume
     - updatam autor/pret/editura unei carti daca am numele ei
     - afisam toate cartile din biblioteca
     
