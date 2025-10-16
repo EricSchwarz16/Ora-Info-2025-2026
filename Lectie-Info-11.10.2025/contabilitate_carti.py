@@ -11,6 +11,7 @@
     - stergem o carte dupa nume
     - updatam autor/pret/editura unei carti daca am numele ei
     - afisam toate cartile din biblioteca
+    - cate carti avem cu pretul X si care sunt acele carti
     
     !!! nu avem voie sa folosim variabile globale!!!!!!
 """
