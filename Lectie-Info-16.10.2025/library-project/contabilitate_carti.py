@@ -6,7 +6,7 @@
             pret
             editura
 
-    O sa avem 100 de carti generate automat.
+    O sa avem o selectie de carti generate automat.
     
     operatii pe care le putem face
     - adaugam o carte
@@ -24,6 +24,20 @@ class Book:
         self.autor = autor
         self.pret = pret
         self.editura = editura
+
+def generate_Books(bookLibrary, nr_carti_generate):
+    import random
+    nume_random = ['Book1', 'Book2', 'Book3', 'Book4', 'Book5', 'Jurnal', 'Revista', 'Atlas', 'Ghid', 'Comic', 'Fabula', 'Cronica', 'Manual de instructiuni', 'Dosar penal', 'Caiet pentru scoala']
+    autor_random = ['Eric1', 'Eric2', 'Eric_junior', 'Eric_senior', 'Eric_sef']
+    editura_random = ['Arthur', 'Humanitas', 'Veritas']
+    
+    for i in range(nr_carti_generate):
+        nume = random.choice(nume_random) + ' ' + random.choice(nume_random)
+        autor = random.choice(autor_random)
+        pret =  random.randint(1, 100)
+        editura = random.choice(editura_random)
+
+        addBook(nume, autor, pret, editura, bookLibrary)       
 
 # Nu putem sa avem 2 carti cu acelasi nume
 # Daca avem 2 carti cu acelasi nume, functia nu face nimic
@@ -60,10 +74,10 @@ def afisare_dupa_pret(bookLibrary: list):
         else:
             dict[carte.pret].append(carte)
     
-    for pret in dict.keys():
+    for pret in sorted(dict.keys()):
         print(f'{pret}: ', end = ' ')
-        for carte in dict[pret]:
-            print(carte.nume, end = ' ')
+        for carte in dict[pret]:            # revenim la sorted(dict[pret]) cand avansam in clase in python !!!
+            print(carte.nume, end = ' | ')
 
         print()    
         
@@ -72,10 +86,13 @@ def afisare_dupa_pret(bookLibrary: list):
 def printBooks(bookLibrary):
     for carte in bookLibrary:
         print(f"{carte.nume} {carte.autor} {carte.pret} {carte.editura}")
-
+    
 if __name__ == "__main__":
     bookLibrary = [] #tinem minte toate cartile si lucram pe acest vector
-    
+
+    generate_Books(bookLibrary, 100)
+
+
     while True:
         print("""
 Alege operatia dorita:
@@ -86,6 +103,7 @@ Alege operatia dorita:
 5: Afisare dupa pret
             """)
         
+
         op = int(input())
 
         if op == 1:
