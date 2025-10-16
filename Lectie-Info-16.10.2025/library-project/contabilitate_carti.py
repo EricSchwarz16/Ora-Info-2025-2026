@@ -6,12 +6,15 @@
             pret
             editura
 
+    O sa avem 100 de carti generate automat.
+    
     operatii pe care le putem face
     - adaugam o carte
     - stergem o carte dupanume
     - updatam autor/pret/editura unei carti daca am numele ei
     - afisam toate cartile din biblioteca
-    
+    - Pentu fiecare pret afisam cartile care au pretul respectiv
+
     !!! nu avem voie sa folosim variabile globale!!!!!!
 """
 
@@ -47,6 +50,24 @@ def updateBookByIndex(index: int, autor: str, pret: int, editura: str, bookLibra
     else:
         print("Index invalid! Nu exista carte cu acest indice.")
 
+def afisare_dupa_pret(bookLibrary: list):
+    dict = {}
+
+    for carte in bookLibrary:
+        if carte.pret not in dict.keys():
+            dict[carte.pret] = [carte]
+        
+        else:
+            dict[carte.pret].append(carte)
+    
+    for pret in dict.keys():
+        print(f'{pret}: ', end = ' ')
+        for carte in dict[pret]:
+            print(carte.nume, end = ' ')
+
+        print()    
+        
+    
 
 def printBooks(bookLibrary):
     for carte in bookLibrary:
@@ -62,6 +83,7 @@ Alege operatia dorita:
 2: Update carte
 3: Delete carte
 4: Afiseaza toate cartile
+5: Afisare dupa pret
             """)
         
         op = int(input())
@@ -90,7 +112,10 @@ Alege operatia dorita:
             index = int(input("Alege indicele cartii pe care vrei sa o stergi: "))
             deleteBookByIndex(index - 1, bookLibrary)
         
-        else:
+        elif op == 4:
             printBooks(bookLibrary)
+        
+        else:
+            afisare_dupa_pret(bookLibrary)
 
 
