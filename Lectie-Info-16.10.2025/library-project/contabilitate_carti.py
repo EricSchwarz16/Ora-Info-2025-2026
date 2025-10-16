@@ -28,7 +28,7 @@ def addBook(nume: str, autor : str, pret : int, editura : str, bookLibrary: list
     bookToBeAdded = Book(nume, autor, pret, editura)
     for carte in bookLibrary:
         if carte.nume == bookToBeAdded.nume:
-            return 
+            return
     
     bookLibrary.append(bookToBeAdded)
 
