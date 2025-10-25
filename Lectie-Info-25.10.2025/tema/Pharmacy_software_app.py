@@ -1,8 +1,8 @@
 from models import Medicine
-from utils import *
+from utils import *  # Import all utility functions for adding, deleting, updating, etc.
 
 if __name__ == "__main__":
-    medicine_inventory = []
+    medicine_inventory = []  # This is the inventory list where all medicines will be stored
 
     while True:
         print("""
@@ -16,31 +16,32 @@ if __name__ == "__main__":
             7: Exit
         """)
 
-        op = int(input())
+        op = int(input())  # Get the user input for the desired operation
 
         if op == 1:
             # Add medicine
             name = input("Enter medicine name: ")
-            concentration = int(input("Enter concentration (mg): "))
-            quantity = int(input("Enter quantity: "))
+            concentration = int(input("Enter concentration (mg/tablet or mg/mL): "))
+            quantity = int(input("Enter quantity (number of tablets or bottles): "))
             price = int(input("Enter price per unit: "))
+            add_medicine(name, concentration, quantity, price, medicine_inventory)
 
         elif op == 2:
             # Delete medicine
             name = input("Enter medicine name to delete: ")
-            concentration = int(input("Enter concentration (mg): "))
+            concentration = int(input("Enter concentration (mg/tablet or mg/mL): "))
             delete_medicine(name, concentration, medicine_inventory)
 
         elif op == 3:
             # Update medicine
             name = input("Enter medicine name to update: ")
-            concentration = int(input("Enter concentration (mg): "))
+            concentration = int(input("Enter concentration (mg/tablet or mg/mL): "))
             quantity = int(input("Enter quantity to add: "))
             price = int(input("Enter price per unit: "))
             update_medicine(name, concentration, quantity, price, medicine_inventory)
 
         elif op == 4:
-            # Search by name or see all available medicines
+            # Search for medicines by name or see all available medicines
             search = input("Enter search string (leave empty to see all): ")
             result = get_medicines_by_name(search, medicine_inventory)
             if result:
@@ -67,16 +68,4 @@ if __name__ == "__main__":
             print("2: Redo")
             sub_op = int(input())
 
-            if sub_op == 1:
-                undo(medicine_inventory)
-            elif sub_op == 2:
-                redo(medicine_inventory)
-            else:
-                print("Invalid option for undo/redo.")
-
-        elif op == 7:
-            print("Exiting the program.")
-            break
-
-        else:
-            print("Invalid option. Please try again.")
+            i
