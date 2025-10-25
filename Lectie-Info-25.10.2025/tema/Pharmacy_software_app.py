@@ -24,7 +24,6 @@ if __name__ == "__main__":
             concentration = int(input("Enter concentration (mg): "))
             quantity = int(input("Enter quantity: "))
             price = int(input("Enter price per unit: "))
-            add_medicine(name, concentration, quantity, price, medicine_inventory)
 
         elif op == 2:
             # Delete medicine
