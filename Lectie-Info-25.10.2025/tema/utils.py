@@ -33,6 +33,11 @@ def update_medicine(name: str, concentration: int, quantity: int, price: int, me
 
     print("Medicine not found for update.")
 
+def get_medicines_by_name(search : str, medicine_Inventory : list):
+    filtered_medicines = [med for med in medicine_Inventory if search in med.name]
+    sorted_medicines = sorted(filtered_medicines, key = lambda med : med.name)
+    return sorted_medicines
+
 def get_short_supply_medicines(threshold: int, medicine_inventory: list):
     return [med for med in medicine_inventory if med.quantity < threshold]
 

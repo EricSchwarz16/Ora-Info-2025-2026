@@ -125,7 +125,7 @@ print(impartire(10, 5))    # 2.0
 
 **Dezavantaje (DE ACEEA NU SE RECOMANDĂ):**
 - Nu știm ce funcții am importat exact
-- Risc de conflict de nume (dacă avem o funcție `adunare()` și în alt modul) (?)
+- Risc de conflict de nume (dacă avem o funcție `adunare()` și în alt modul, pe care de asemenea il importam) 
 - Cod greu de debugat
 - Considerată practică proastă în Python
 
