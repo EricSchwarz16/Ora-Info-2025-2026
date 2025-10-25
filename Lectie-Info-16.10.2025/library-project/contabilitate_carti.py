@@ -26,7 +26,7 @@ from utils import * # * -> tot
     !!! nu avem voie sa folosim variabile globale!!!!!!
 """
     
-if __name__ == "__main__":
+if __name__ == "__main__":      #(?)
     bookLibrary = [] #tinem minte toate cartile si lucram pe acest vector
 
     generate_Books(bookLibrary, 100)
