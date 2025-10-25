@@ -6,4 +6,4 @@ class Medicine:
         self.price = price
 
     def __repr__(self):
-        return f"{self.name} | {self.concentration} mg | {self.quantity} units | €{self.price} each"
+        return f"{self.name} | {self.concentration} mg | {self.quantity} units | {self.price} € each"

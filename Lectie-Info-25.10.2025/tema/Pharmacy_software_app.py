@@ -47,7 +47,7 @@ if __name__ == "__main__":
             if result:
                 print("Found medicines:")
                 for med in result:
-                    print(f"{med.name} | {med.concentration} mg | {med.quantity} units | ${med.price} each")
+                    print(med)
             else:
                 print("No medicines found.")
 
@@ -58,7 +58,7 @@ if __name__ == "__main__":
             if result:
                 print("Medicines in short supply:")
                 for med in result:
-                    print(f"{med.name} | {med.concentration} mg | {med.quantity} units")
+                    print(med)
             else:
                 print("No medicines in short supply.")
 
