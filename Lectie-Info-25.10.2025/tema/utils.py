@@ -33,6 +33,9 @@ def update_medicine(name: str, concentration: int, quantity: int, price: int, me
 
     print("Medicine not found for update.")
 
+def get_short_supply_medicines(threshold: int, medicine_inventory: list):
+    return [med for med in medicine_inventory if med.quantity < threshold]
+
         
 
             
