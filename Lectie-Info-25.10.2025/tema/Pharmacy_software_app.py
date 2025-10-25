@@ -67,5 +67,11 @@ if __name__ == "__main__":
             print("1: Undo")
             print("2: Redo")
             sub_op = int(input())
+            if sub_op == 1:
+                undo(medicine_inventory)
+            elif sub_op == 2:
+                redo(medicine_inventory)
 
-            
+        elif op == 7:
+            # Exit the program
+            break
