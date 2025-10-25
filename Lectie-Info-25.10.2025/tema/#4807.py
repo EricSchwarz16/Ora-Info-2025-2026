@@ -22,8 +22,8 @@ def procesare_preturi():
                     valoare = int(operatie[3])
 
                     
-                    undo_stack.append(("modificare", index1, index2, tip, valoare))
-                    redo_stack.clear()  # Anulăm redo-ul dacă există operații noi
+                    undo_stack.append((index1, index2, tip, valoare))
+                    redo_stack.append((index1, index2, tip, valoare))
 
                     for i in range(index1, index2 + 1):
                         if tip == "+":
@@ -36,7 +36,6 @@ def procesare_preturi():
                         last_op = undo_stack.pop()
                         index1, index2, tip, valoare = last_op
 
-                        redo_stack.append(last_op)
                         for i in range(index1, index2 + 1):
                             if tip == "+":
                                 preturi[i] -= valoare 
@@ -49,7 +48,6 @@ def procesare_preturi():
                         last_op = redo_stack.pop()
                         index1, index2, tip, valoare = last_op
 
-                        undo_stack.append(last_op)
                         for i in range(index1, index2 + 1):
                             if tip == "+":
                                 preturi[i] += valoare 
