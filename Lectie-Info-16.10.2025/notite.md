@@ -125,7 +125,7 @@ print(impartire(10, 5))    # 2.0
 
 **Dezavantaje (DE ACEEA NU SE RECOMANDĂ):**
 - Nu știm ce funcții am importat exact
-- Risc de conflict de nume (dacă avem o funcție `adunare()` și în alt modul)
+- Risc de conflict de nume (dacă avem o funcție `adunare()` și în alt modul) (?)
 - Cod greu de debugat
 - Considerată practică proastă în Python
 
@@ -162,7 +162,7 @@ def media_clasei(elevi):
 def cel_mai_bun_elev(elevi):
     if len(elevi) == 0:
         return None
-    return max(elevi, key=lambda e: e.medie())
+    return max(elevi, key=lambda e: e.medie()) #(?)
 ```
 
 ```python
