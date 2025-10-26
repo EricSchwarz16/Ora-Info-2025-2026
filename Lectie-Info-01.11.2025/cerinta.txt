@@ -1,0 +1,3 @@
+Tema: rezolva problema de ora trecuta in cpp -> ca sa intelegi 
+logica pentru o viitoare implementare in py
+Scrie din nou aplicatia de ora trcuta folosind layerele deja definite

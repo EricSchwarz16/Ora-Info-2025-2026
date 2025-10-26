@@ -1,0 +1,9 @@
+Operator	Method	Example
++	__add__(self, other)	a + b
+-	__sub__(self, other)	a - b
+*	__mul__(self, other)	a * b
+/	__truediv__(self, other)	a / b
+==	__eq__(self, other)	a == b
+<	__lt__(self, other)	a < b
+>	__gt__(self, other)	a > b
+str()	__str__(self)	print(a)
