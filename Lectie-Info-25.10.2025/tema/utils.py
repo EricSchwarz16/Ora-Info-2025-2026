@@ -6,6 +6,7 @@ redo_stack = []
 def add_medicine(name: str, concentration: int, quantity: int, price: int, medicine_inventory: list):
     # Save current state to undo stack before operation
     undo_stack.append(('add', list(medicine_inventory)))
+    redo_stack.append(('add', list(medicine_inventory)))
     
     medicine_to_be_added = Medicine(name, concentration, quantity, price)
 
@@ -20,6 +21,7 @@ def add_medicine(name: str, concentration: int, quantity: int, price: int, medic
 def delete_medicine(name: str, concentration: int, medicine_inventory: list):
     # Save current state to undo stack before operation
     undo_stack.append(('delete', list(medicine_inventory)))
+    redo_stack.append(('delete', list(medicine_inventory)))
     
     for med in medicine_inventory:
         if med.name == name and med.concentration == concentration:
@@ -30,59 +32,55 @@ def delete_medicine(name: str, concentration: int, medicine_inventory: list):
     print("Medicine not found for deletion.")
 
 def update_medicine(name: str, concentration: int, quantity: int, price: int, medicine_inventory: list):
-    # Save current state to undo stack before operation
     undo_stack.append(('update', list(medicine_inventory)))
+    redo_stack.append(('update', list(medicine_inventory)))
     
     for med in medicine_inventory:
         if med.name == name and med.concentration == concentration: 
             med.quantity = med.quantity + quantity
             med.price = price
             print(f"Medicine '{med.name}' updated successfully!")
-            return  # Stop after updating
+            return  
     
     print("Medicine not found for update.")
 
 def get_medicines_by_name(search: str, medicine_inventory: list):
-    # Save the state of the search operation to the undo stack
-    undo_stack.append(('get_by_name', list(medicine_inventory), search))
+    undo_stack.append(('get_by_name', list(medicine_inventory)))
+    redo_stack.append(('get_by_name', list(medicine_inventory), search))
     
     if not search:
         return medicine_inventory
-    
-    # Filter and sort medicines by name if search string is provided
+      
     filtered_medicines = [med for med in medicine_inventory if search in med.name]
     sorted_medicines = sorted(filtered_medicines, key=lambda med: med.name)
     return sorted_medicines
 
 def get_short_supply_medicines(threshold: int, medicine_inventory: list):
-    # Save the state of the short supply operation to the undo stack
-    undo_stack.append(('get_short_supply', list(medicine_inventory), threshold))
+    
+    undo_stack.append(('get_short_supply', list(medicine_inventory)))
+    redo_stack.append(('get_short_supply', list(medicine_inventory), threshold))
     
     return [med for med in medicine_inventory if med.quantity < threshold]
 
-# Undo function
+
 def undo(medicine_inventory: list):
     if not undo_stack:
         print("No actions to undo.")
         return
     
     last_action, previous_state, *additional_args = undo_stack.pop()
-    redo_stack.append((last_action, list(medicine_inventory), *additional_args))
+    redo_stack.pop()
     
-    # Revert to the previous state
     medicine_inventory[:] = previous_state
     print(f"Undo {last_action} operation.")
 
-# Redo function
 def redo(medicine_inventory: list):
     if not redo_stack:
         print("No actions to redo.")
         return
     
-    last_action, previous_state, *additional_args = redo_stack.pop()
-    undo_stack.append((last_action, list(medicine_inventory), *additional_args))
+    last_action, previous_state, *additional_args = redo_stack[-1]
     
-    # Reapply the action (here, we handle each action type)
     if last_action == 'add':
         medicine_inventory.append(Medicine(previous_state[-1].name, previous_state[-1].concentration, previous_state[-1].quantity, previous_state[-1].price))
         print(f"Redo {last_action} operation: {previous_state[-1].name} added again.")

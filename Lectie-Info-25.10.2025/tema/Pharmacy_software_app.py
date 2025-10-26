@@ -16,7 +16,7 @@ if __name__ == "__main__":
             7: Exit
         """)
 
-        op = int(input())  # Get the user input for the desired operation
+        op = int(input())  
 
         if op == 1:
             # Add medicine
