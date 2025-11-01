@@ -1,9 +1,9 @@
-from repository import Repository
+from repository import Repository, TxtRepository
 from model import Medicine
 
 class Service:
     def __init__(self):
-        self.repo = Repository()
+        self.repo = TxtRepository("medicine.txt")
         self.undoRedoService = UndoRedoService()
     
     def getAllMedicines(self) ->  list[Medicine]:
@@ -18,6 +18,12 @@ class Service:
     
     def updateMedicine(self, name: str, a : Medicine):
         self.repo.updateMedicine(name, a)
+    
+    def Undo(self):
+        pass
+    
+    def Redo(self):
+        pass
     
     def getMedicinesWithAPriceLowerThan(self, price):
         medicineList = self.repo.getAllMedicine()
@@ -35,6 +41,7 @@ class UndoRedoService:
         self.redoStack = []
     
     def undo(self):
+        #operatia, elementu | sau tot arrayul
         pass
 
     def redo(self):
