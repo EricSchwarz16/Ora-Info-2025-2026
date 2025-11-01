@@ -34,7 +34,7 @@ void Operatie(operatie& oper, int semn) {
 int main()
 {
     fin >> n;
-    fout << 2;
+
     Preturi.resize(n + 1);
     for (int i = 1; i <= n; i++) 
         fin >> Preturi[i];
@@ -45,13 +45,13 @@ int main()
         int cnt_op = 0;
         // Vector pentru operațiile tip "+" sau "-"
         // O vom folosi împreună cu stivele undo/redo
-        for (int i = 1; i <= t; i++)
-            fin >> op[i];
 
         // Iterare prin operații pentru această zi
         int index_Op_curent = 1;
         while(index_Op_curent <= t) {
-            char c = op[index_Op_curent];
+            char c;
+            fin >> c;
+
             if (c == '+' || c == '-') {
                 int st, dr, val;
                 fin >> st >> dr >> val;
@@ -60,7 +60,6 @@ int main()
                 while(!redo.empty()) redo.pop();
                 Operatie(oper, 1);
                 undo.push(oper);
-                index_Op_curent++;
             }
             else if (c == 'u') {
                 // Undo: ultima operație neanulată
@@ -70,7 +69,6 @@ int main()
                     Operatie(ultim_Oper, -1);
                     redo.push(ultim_Oper);
                 }
-                index_Op_curent++;
             }
             else if (c == 'r') {
                 // Redo: ultima operație anulată
@@ -80,8 +78,8 @@ int main()
                     Operatie(ultim_Undo, 1);
                     undo.push(ultim_Undo);
                 }
-                index_Op_curent++;
             }
+            index_Op_curent++;
         }
 
         // La finalul zilei, printăm prețurile
