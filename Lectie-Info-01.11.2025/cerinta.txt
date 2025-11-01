@@ -1,3 +1,15 @@
 - Tema: rezolva problema de ora trecuta in cpp ✅ -> ca sa intelegi 
 logica pentru o viitoare implementare in py 
 - Scrie din nou aplicatia de ora trecuta folosind layerele deja definite
+
+
+
+
+-Implementare undo redo
+
+in undo redo service tinem minte stackurile si aplicam logica de la problema librarie
+pe stack tinem minte mereu stateul de la momentul operatiei(lista de medicine corespunzatoare)
+
+daca avem o operatie de undo/redo -> aplicam logica pentru a updata stivele precum la librarie si returam stateul actualizat in Serviceul mare deoarece acesta va
+fi noul nostru array. Avand acest array, trebuie sa updatam datele in repository pentru consistenta -> facem o noua metoda updateMedicineList(sau cum vrei tu sa o ntmesti)
+si o apelam in service dupa opearatia undo/redo pentru a persista schimbarile.

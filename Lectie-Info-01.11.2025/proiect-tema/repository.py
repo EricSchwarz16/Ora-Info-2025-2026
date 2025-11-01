@@ -59,8 +59,8 @@ class TxtRepository(Repository):
                 f.write(str(medicine))
                 f.write("\n")
 
-#Repository pentru CSV
+#Repository pentru CSV -> exista si aici, dar poti usor si de mana
 
-#Repository pentru fisier JSON
+#Repository pentru fisier JSON -> exista librarie care sa parseze direct
 
 
