@@ -56,8 +56,6 @@ int main()
                 int st, dr, val;
                 fin >> st >> dr >> val;
                 operatie oper = {c, st, dr, val};
-                // La o operație nouă de modificare, se sterge ultima operatie din redo
-                while(!redo.empty()) redo.pop();
                 Operatie(oper, 1);
                 undo.push(oper);
             }
