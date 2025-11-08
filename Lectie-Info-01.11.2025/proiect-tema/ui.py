@@ -1,6 +1,6 @@
 from service import *
 
-class Ui:
+class UI:
     def __init__(self):
         self.service = Service()
         
@@ -22,13 +22,13 @@ class Ui:
             print("No medicines found.")
 
     
-    def runUi(self):
+    def runUI(self):
         while True:
             print("""
-Choose the following operation:
-1: Add a medicine
-2: Show all medicines
-""")
+                Choose the following operation:
+                1: Add a medicine
+                2: Show all medicines
+                """)
 
             op = int(input())  
 

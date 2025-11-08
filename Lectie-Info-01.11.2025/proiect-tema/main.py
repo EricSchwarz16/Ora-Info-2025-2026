@@ -1,6 +1,6 @@
-from ui import Ui
+from ui import UI
 
 
 if __name__ == "__main__":
-    ui = Ui()
-    ui.runUi()
+    ui = UI()
+    ui.runUI()
