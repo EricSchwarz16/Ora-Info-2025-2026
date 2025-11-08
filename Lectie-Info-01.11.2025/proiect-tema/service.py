@@ -41,7 +41,7 @@ class UndoRedoService:
         self.redoStack = []
     
     def undo(self):
-        #operatia, elementu | sau tot arrayul
+        #operatia, elementul | sau tot array-ul
         pass
 
     def redo(self):

@@ -6,7 +6,7 @@ class Repository:
         self.medicineList = []
         self.loadData()
     
-    def addMecicine(self, a: Medicine):
+    def addMedicine(self, a: Medicine):
         self.medicineList.append(a)
         
         self.saveData()
@@ -14,14 +14,20 @@ class Repository:
     def saveMedicineList(newMedicineList : list[Medicine]):
         pass
     
-    def deleteMedicine(self, a : Medicine): #implementeza overload la === pentru a putea face comparatii directe nu pe medicine.field
-        #logica de delete
+    def deleteMedicine(self, a : Medicine): #implementeza overload la === pentru a putea face comparatii directe, nu pe medicine.field
+        self.medicineList.remove(a)
         
         self.saveData()
         pass
     
     def updateMedicine(self, name: str, newMedicine : Medicine): #implementeza overload la === pentru a putea face comparatii directe nu pe medicine.field
-        #logica de update
+        found = False
+        for i, m in enumerate(self.medicineList):
+            if m.name == name:
+                self.medicineList(i) == newMedicine
+                found = True
+                break
+
         self.saveData()
         pass
     
