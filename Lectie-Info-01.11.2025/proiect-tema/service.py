@@ -11,7 +11,7 @@ class Service:
     
     def addMedicine(self, a: Medicine):
         self.undoRedoService.addToUndoStack("add", self.repo.getAllMedicine())
-        self.repo.addMecicine(a)
+        self.repo.addMedicine(a)
 
     def deleteMedicine(self, a: Medicine):
         self.repo.deleteMedicine(a)
