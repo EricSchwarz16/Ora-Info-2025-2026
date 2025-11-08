@@ -9,3 +9,7 @@ pe stack tinem minte mereu state-ul de la momentul operatiei (lista de medicamen
 -> daca avem o operatie de undo/redo -> aplicam logica pentru a updata stivele precum la librarie si returnam state-ul actualizat in Service-ul mare deoarece acesta va
 fi noul nostru array. Avand acest array, trebuie sa updatam datele in repository pentru consistenta -> facem o noua metoda updateMedicineList(sau cum vrei tu sa o numesti)
 si o apelam in service dupa operatia undo/redo pentru a persista schimbarile.
+
+Ora 9.11.2025:
+    -> discutat undo redo
+    -> discutat Bug Frankfurt Social Connect
