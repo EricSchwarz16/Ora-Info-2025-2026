@@ -15,7 +15,7 @@ counter_german = 0
 #Inheritance -> mostenire
 class Caine(Animal):
     def alergare(self):
-        print("SUnt un caine si alerg")
+        print("Sunt un caine si alerg")
         
     def sound(self):
         global counter
@@ -29,7 +29,7 @@ class Caine(Animal):
         
 class CiobanescGerman(Caine):
     def alergare(self):
-        print("SUnt un ciobanesc german si alerg")
+        print("Sunt un ciobanesc german si alerg")
         
     def sound(self):
         global counter
