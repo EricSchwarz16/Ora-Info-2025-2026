@@ -3,7 +3,7 @@ logica pentru o viitoare implementare in py
 - Scrie din nou aplicatia de ora trecuta folosind layerele deja definite ✅
 -Implementare undo redo:
 
--> in undo redo service tinem minte stackurile si aplicam logica de la problema librarie
+-> in undo redo service tinem minte stackurile si aplicam logica de la problema librarie ✅
 pe stack tinem minte mereu state-ul de la momentul operatiei (lista de medicamente corespunzatoare)
 
 -> daca avem o operatie de undo/redo -> aplicam logica pentru a updata stivele precum la librarie si returnam state-ul actualizat in Service-ul mare deoarece acesta va
@@ -11,6 +11,8 @@ fi noul nostru array. Avand acest array, trebuie sa updatam datele in repository
 si o apelam in service dupa operatia undo/redo pentru a persista schimbarile.
 
 Ora 9.11.2025:
-    -> discutat layere
-    -> discutat undo redo
-    -> discutat Bug Frankfurt Social Connect
+    -> discutat layere ✅
+    -> discutat undo redo ✅
+    -> discutat Bug Frankfurt Social Connect ✅
+
+
