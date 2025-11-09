@@ -11,5 +11,6 @@ fi noul nostru array. Avand acest array, trebuie sa updatam datele in repository
 si o apelam in service dupa operatia undo/redo pentru a persista schimbarile.
 
 Ora 9.11.2025:
+    -> discutat layere
     -> discutat undo redo
     -> discutat Bug Frankfurt Social Connect
