@@ -10,3 +10,6 @@ class Medicine:
     
     def __str__(self):
         return f"{self.name}|{self.concentration}|{self.quantity}|{self.price}"
+    
+    def __eq__(self, other):
+        return self.name == other.name

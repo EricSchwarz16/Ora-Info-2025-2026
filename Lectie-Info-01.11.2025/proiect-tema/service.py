@@ -28,9 +28,8 @@ class Service:
     def getMedicinesWithAPriceLowerThan(self, price):
         medicineList = self.repo.getAllMedicine()
         resultList = []
-        
         for medicine in medicineList:
-            if medicine.price < price:
+            if medicine.price < int(price):
                 resultList.append(medicine)
         
         return resultList

@@ -14,18 +14,18 @@ class Repository:
     def saveMedicineList(newMedicineList : list[Medicine]):
         pass
     
-    def deleteMedicine(self, a : Medicine): #implementeza overload la === pentru a putea face comparatii directe, nu pe medicine.field
-        self.medicineList.remove(a)
-        
+    def deleteMedicine(self, name : str): 
+        for m in self.medicineList:
+            if m.name == name:
+                self.medicineList.remove(m)
+
         self.saveData()
         pass
     
-    def updateMedicine(self, name: str, newMedicine : Medicine): #implementeza overload la === pentru a putea face comparatii directe nu pe medicine.field
-        found = False
+    def updateMedicine(self, name: str, newMedicine : Medicine): 
         for i, m in enumerate(self.medicineList):
             if m.name == name:
-                self.medicineList(i) == newMedicine
-                found = True
+                self.medicineList[i] = newMedicine
                 break
 
         self.saveData()

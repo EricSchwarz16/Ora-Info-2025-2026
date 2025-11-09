@@ -11,15 +11,32 @@ class UI:
         price = int(input("Enter price per unit: "))
         self.service.addMedicine(Medicine(name, concentration, quantity, price))
     
-    def get_medicines(self):
-        result = self.service.getAllMedicines()
+    def deleteMedicine(self):
+        name = input("Name of to be deleted medicine: ")
+        self.service.deleteMedicine(name)
+
+
+    def updateMedicine(self):
+        name = input("Name of to be modified medicine: ")
+        concentration = input("Concentration: ")
+        quantity = input("Quantity: ")
+        price = input("Price: ")
+        self.service.updateMedicine(name, Medicine(name, concentration, quantity, price))
+
+    def medicinesWithPriceLowerThan(self):
+        price = input("Type in the reference price: ")
+        self.printMedicines(self.service.getMedicinesWithAPriceLowerThan(price))
+
+
+    def printMedicines(self, MedicineList : list[Medicine]):     # primeste ca parametru o lista de medicamente si o afiseaza
         
-        if result:
+        if MedicineList:
             print("Found medicines:")
-            for med in result:
+            for med in MedicineList:
                 print(med)
         else:
             print("No medicines found.")
+        
 
     
     def runUI(self):
@@ -28,6 +45,9 @@ class UI:
                 Choose the following operation:
                 1: Add a medicine
                 2: Show all medicines
+                3: Delete a medicine
+                4: Update a medicine
+                5: Get all medicines with a price lower than
                 """)
 
             op = int(input())  
@@ -35,4 +55,13 @@ class UI:
             if op == 1:
                 self.addMedicine()
             elif op == 2:
-                self.get_medicines()
+                self.printMedicines(self.service.getAllMedicines())
+            
+            elif op == 3:
+                self.deleteMedicine()
+            
+            elif op == 4:
+                self.updateMedicine()
+            
+            elif op == 5:
+                self.medicinesWithPriceLowerThan()
