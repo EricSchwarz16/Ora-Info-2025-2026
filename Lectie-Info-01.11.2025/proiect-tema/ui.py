@@ -28,7 +28,7 @@ class UI:
         self.printMedicines(self.service.getMedicinesWithAPriceLowerThan(price))
 
 
-    def printMedicines(self, MedicineList : list[Medicine]):     # primeste ca parametru o lista de medicamente si o afiseaza
+    def printMedicines(self, MedicineList : list[Medicine]): 
         
         if MedicineList:
             print("Found medicines:")
