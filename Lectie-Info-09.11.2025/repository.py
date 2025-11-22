@@ -4,21 +4,29 @@ class Repository:
     def __init__ (self):
         self.BookList = []
     
-    def addBook(self, b : Book):
+    def AddBook(self, b : Book):
+        for ExistingBook in self.BookList:
+            if ExistingBook.title == b.title and ExistingBook.author == b.author:
+                ExistingBook.quantity += b.quantity
+                return 
+            
         self.BookList.append(b)
     
-    def deleteBook(self, title : str, author : str):
+    def DeleteBook(self, title : str, author : str):
         for b in self.BookList:
             if b.title == title and b.author == author:
                 self.bookList.remove(b)
     
-    def updateBook(self, title : str, author : str, NewBook : Book):
+    def UpdateBook(self, title : str, author : str, NewBook : Book):
         for i, b in enumerate(self.BookList):
             if b.title == title and b.author == author:
                 self.BookList[i] = NewBook
                 break
     
     def GetBooksByString(self, search_string : str):
+        if not search_string:
+            return self.BookList
+        
         return [
             book for book in self.BookList
                 if search_string in book.title or search_string in book.author
