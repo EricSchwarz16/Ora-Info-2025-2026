@@ -4,6 +4,7 @@ from models import Book
 class Service:
     def __init__(self):
         self.repo = TxtRepository("book.txt")
+        self.repo.LoadData()
     
     def AddBook(self, b : Book):
         self.repo.AddBook(b)
@@ -15,13 +16,13 @@ class Service:
         self.repo.UpdateBook(title, author, NewBook)
     
     def GetBooksByString(self, search_string : str):
-        self.repo.GetBooksByString(search_string)
+        return  self.repo.GetBooksByString(search_string)
     
     def GetBooksWithPriceLowerThan(self, price : float):
-        self.repo.GetBooksWithPriceLowerThan(price)
+        return self.repo.GetBooksWithPriceLowerThan(price)
     
     def GetBooksWithPriceHigherThan(self, price : float):
-        self.repo.GetBooksWithPriceHigherThan(price)
+        return self.repo.GetBooksWithPriceHigherThan(price)
     
 
         

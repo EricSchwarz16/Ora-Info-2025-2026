@@ -7,10 +7,11 @@ class UI2:
     def AddBook(self):
         title = input("Enter the title of the book: ")
         author = input("Enter the author of the book: ")
-        DateOfPublish = input("Enter the date of publication for the book: ")
+        DateOfPublic = int(input("Enter the date of publication for the book: "))
         publisher = input("Enter the publisher for the book: ")
-        price = float(input("Enter the price of the book in €"))
-        self.service.AddBook(Book(title, author, DateOfPublish, publisher, price))
+        price = float(input("Enter the price of the book in €: "))
+        quantity = 1
+        self.service.AddBook(Book(title, author, DateOfPublic, publisher, price, quantity))
     
     def DeleteBook(self):
         title = input("Title of to be deleted Book: ")
@@ -18,28 +19,58 @@ class UI2:
         self.service.DeleteBook(title, author)
     
     def UpdateBook(self):
+        # Identify old book
         title = input("Name of to be updated title: ")
         author = input("Name of to be updated author: ")
 
+        # New book data
         title2 = input("Enter the title of the new book: ")
         author2 = input("Enter the author of the new book: ")
-        DateOfPublish = input("Enter the date of publication for the new book: ")
+        DateOfPublic = int(input("Enter the date of publication for the new book: "))
         publisher = input("Enter the publisher for the new book: ")
-        price = float(input("Enter the price of the new book in €"))
-        self.service.UpdateBook(title, author, Book(title2, author2, DateOfPublish, publisher, price))
+        price = float(input("Enter the price of the new book in €: "))
+
+        old_books = self.service.GetBooksByString("") 
+        
+        old_book = None
+
+        for b in old_books:
+            if b.title == title and b.author == author:
+                old_book = b
+                break
+
+        if old_book is None:
+            print("Book not found.")
+            return
+
+        if title2 == title and author2 == author:
+            new_quantity = old_book.quantity + 1
+        else:
+            new_quantity = 1
+
+        new_book = Book(title2, author2, DateOfPublic, publisher, price, new_quantity)
+        self.service.UpdateBook(title, author, new_book)
+        print("Book updated successfully.")
+
         
     
     def GetBooksByString(self):
         search_string = input("String to be used in searching: ")
-        self.service.GetBooksByString(search_string)
+        books = self.service.GetBooksByString(search_string)
+        for b in books:
+            print(b)
     
     def GetBooksWithPriceLowerThan(self):
         price = float(input("Name the price of reference in €: "))
-        self.service.GetBooksWithPriceLowerThan(price)
+        books = self.service.GetBooksByString(price)
+        for b in books:
+            print(b)
     
     def GetBooksWithPriceHigherThan(self):
         price = float(input("Name the price of reference in €: "))
-        self.service.GetBooksWithPriceHigherThan(price)
+        books = self.service.GetBooksByString(price)
+        for b in books:
+            print(b)
     
     def RunUI(self):
         while True:
@@ -49,7 +80,7 @@ Choose the following operation:
 1 : Add a book
 2 : Delete a book
 3 : Update a book
-4 : Get books by a search string
+4 : Get books by a search string or all of them when input string does not have any characters
 5 : Get all books with a price lower than
 6 : Get all books with a price higher than 
                   """
