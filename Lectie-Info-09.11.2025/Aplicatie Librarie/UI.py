@@ -20,7 +20,7 @@ class UI2:
     def UpdateBook(self):
         title = input("Name of to be updated title: ")
         author = input("Name of to be updated author: ")
-        
+
         title2 = input("Enter the title of the new book: ")
         author2 = input("Enter the author of the new book: ")
         DateOfPublish = input("Enter the date of publication for the new book: ")
@@ -54,7 +54,7 @@ Choose the following operation:
 6 : Get all books with a price higher than 
                   """
             )
-            op = int(input(()))
+            op = int(input())
 
             if op == 0:
                 break
