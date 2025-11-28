@@ -23,6 +23,5 @@ class Service:
     def GetBooksWithPriceHigherThan(self, price : float):
         self.repo.GetBooksWithPriceHigherThan(price)
     
-    
 
         
