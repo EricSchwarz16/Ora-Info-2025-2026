@@ -8,7 +8,7 @@ Pentru ora de pe 29.11.2025:
 -> Intrebat: pentru ce super().__init__() de pe linia 48 din repository.py ✅
 
 
-Ora:
+Ora 29.11.2025:
 
 --> Exceptii custom:
         data adaugarii sa fie mai devreme decat data actuala
