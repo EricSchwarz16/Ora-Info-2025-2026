@@ -5,7 +5,7 @@
 -->(Eu) poti implementa cand da utilizatorul numere de la tastatura cu virgula sa le transformi in punct
 
 Pentru ora de pe 29.11.2025:
--> Intrebat: pentru ce super().__init__() de pe linia 48 din repository.py
+-> Intrebat: pentru ce super().__init__() de pe linia 48 din repository.py ✅
 
 
 
