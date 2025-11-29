@@ -2,6 +2,7 @@ from model import Medicine
 
 #tine minte in memorie
 class Repository:
+    #constructor -> se apeleaza cand initializam clasa
     def __init__(self):
         self.medicineList = []
         self.loadData()
@@ -45,7 +46,7 @@ class Repository:
 class TxtRepository(Repository):
     def __init__(self, file: str):
         self.file = file
-        super().__init__()
+        super().__init__() # -> apeleaza si constructorul de la clasa parinte
         
     def loadData(self):
         with open(self.file) as file:
@@ -60,11 +61,10 @@ class TxtRepository(Repository):
                 self.medicineList.append(Medicine(name, concentration, quantity, price))
         
     def saveData(self):
-        pass
-        #with open(self.file, "w") as f:
-        #   for medicine in self.medicineList:
-        #      f.write(str(medicine))
-        #     f.write("\n")
+        with open(self.file, "w") as f:
+           for medicine in self.medicineList:
+              f.write(str(medicine))
+              f.write("\n")
 
 #Repository pentru CSV -> exista si aici, dar poti usor si de mana
 

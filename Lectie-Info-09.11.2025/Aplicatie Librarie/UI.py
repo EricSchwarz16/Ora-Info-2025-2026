@@ -1,17 +1,23 @@
 from service import *
+from book_exceptions.book_date_exception import BookDateException
 
 class UI2:
     def __init__(self):
         self.service = Service()        # Warum brauchen wir das ?
     
     def AddBook(self):
-        title = input("Enter the title of the book: ")
-        author = input("Enter the author of the book: ")
-        DateOfPublic = int(input("Enter the date of publication for the book: "))
-        publisher = input("Enter the publisher for the book: ")
-        price = float(input("Enter the price of the book in €: "))
-        quantity = 1
-        self.service.AddBook(Book(title, author, DateOfPublic, publisher, price, quantity))
+        try:
+            title = input("Enter the title of the book: ")
+            author = input("Enter the author of the book: ")
+            DateOfPublic = int(input("Enter the date of publication for the book: ")) # poate pusca aici daca nu dam un int
+            publisher = input("Enter the publisher for the book: ")
+            price = float(input("Enter the price of the book in €: "))
+            quantity = int(input("Enter quantity: "))
+            self.service.AddBook(title, author, DateOfPublic, publisher, price, quantity)
+        except ValueError as e:
+            print(f"Enter valid fields for date and price: {e}")
+        except (BookDateException, NegativeBookPrice, NegativeBookQuantity) as e:
+            print(e)
     
     def DeleteBook(self):
         title = input("Title of to be deleted Book: ")
