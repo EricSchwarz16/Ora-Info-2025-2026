@@ -5,13 +5,17 @@ class UI2:
     def __init__(self):
         self.service = Service()        # Warum brauchen wir das ?
     
+    def input_float(self, prompt):
+        value = input(prompt).strip().replace(",", ".")
+        return float(value)
+
     def AddBook(self):
         try:
             title = input("Enter the title of the book: ")
             author = input("Enter the author of the book: ")
             DateOfPublic = int(input("Enter the date of publication for the book: ")) # poate pusca aici daca nu dam un int
             publisher = input("Enter the publisher for the book: ")
-            price = float(input("Enter the price of the book in €: "))
+            price = self.input_float("Enter the price of the book in €: ")
             quantity = int(input("Enter quantity: "))
             self.service.AddBook(title, author, DateOfPublic, publisher, price, quantity)
         except ValueError as e:
@@ -34,7 +38,7 @@ class UI2:
         author2 = input("Enter the author of the new book: ")
         DateOfPublic = int(input("Enter the date of publication for the new book: "))
         publisher = input("Enter the publisher for the new book: ")
-        price = float(input("Enter the price of the new book in €: "))
+        price = self.input_float("Enter the price of the new book in €: ")
 
         old_books = self.service.GetBooksByString("") 
         
@@ -67,13 +71,13 @@ class UI2:
             print(b)
     
     def GetBooksWithPriceLowerThan(self):
-        price = float(input("Name the price of reference in €: "))
+        price = self.input_float("Name the price of reference in €: ")
         books = self.service.GetBooksByString(price)
         for b in books:
             print(b)
     
     def GetBooksWithPriceHigherThan(self):
-        price = float(input("Name the price of reference in €: "))
+        price = self.input_float("Name the price of reference in €: ")
         books = self.service.GetBooksByString(price)
         for b in books:
             print(b)
