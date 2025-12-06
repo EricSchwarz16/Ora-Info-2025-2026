@@ -7,6 +7,8 @@ class OutsideBoardException(Exception):
     
     def __str__(self):
         return self.message
+
+# invalid position -> implementare + adaugare
     
 
 class AlreadyPlacedSymbolException(Exception):
@@ -18,6 +20,7 @@ class AlreadyPlacedSymbolException(Exception):
     
     def __str__(self):
         return self.message
+
 
 class GameAlreadyFinished(Exception):
     def __init__(self, message):

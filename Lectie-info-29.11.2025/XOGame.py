@@ -1,4 +1,5 @@
 from board import Board
+from board_exceptions import *
 
 class XOGame:
     def __init__(self):
@@ -7,7 +8,11 @@ class XOGame:
     
     def makeMove(self, row: int, col: int):
         symbol = 'X' if self.turn else 'O'
-        self.board.makeMove(symbol, row, col)
+        try:
+            self.board.makeMove(symbol, row, col)
+            self.turn = not self.turn
+        except OutsideBoardException as e:
+            print(e)
         
     
     def runGame(self):

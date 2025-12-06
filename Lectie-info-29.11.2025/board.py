@@ -27,6 +27,9 @@ class Board:
         return True
     
     def makeMove(self, symbol : str, row : int, col : int):
+        if row >= self.row or self.row < 0 or col >= self.col or col < 0:
+            raise OutsideBoardException()
+        
         self.A[row][col] = symbol
         
 
@@ -35,7 +38,7 @@ class Board:
         for i in range(self.row):                   # 1) fiecare combinatie pe linie
             ok = 1
             for j in range(1, self.col):
-                if self.A[i][j] != self.A[i][j-1]:
+                if self.A[i][j] != self.A[i][j-1] or self.A[i][j] == '.':
                     ok = 0
             
             if ok:
@@ -44,33 +47,33 @@ class Board:
         for j in range(self.col):                    # 2) fiecare combinatie pe coloane
             ok = 1
             for i in range(1, self.row):
-                if self.A[i][j] != self.A[i-1][j]:
+                if self.A[i][j] != self.A[i-1][j] or self.A[i][j] == '.':
                     ok = 0
             
             if ok:
                 return self.A[0][j]
-        
+       
         ok = 1
         for i in range(1, self.row):                                         # 3.1) diagonala principala
-            if self.A[i][i] != self.A[i - 1][i - 1]:
-                ok == 0
+            if self.A[i][i] != self.A[i - 1][i - 1] or self.A[i][i] == '.':
+                ok = 0
             
         if ok:
             return self.A[0][0]
-        
+       
         # 3.2) diagonala secundara
 
-        i, j = 1, self.col
+        i, j = 1, self.col - 2
         ok = 1
         while i < self.row:
-            if self.A[i][j] != self.A[i - 1][j + 1]:
+            if self.A[i][j] != self.A[i - 1][j + 1] or self.A[i][j] == '.':
                 ok = 0
             
             i += 1
             j -= 1
         
         if ok:
-            return self.A[0][self.col]
+            return self.A[0][self.col - 1]
 
         # verificare egalitate
 
