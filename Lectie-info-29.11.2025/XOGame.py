@@ -6,7 +6,9 @@ class XOGame:
         self.turn = 1 # 1 pentru X, 0 pentru O 
     
     def makeMove(self, row: int, col: int):
-        pass
+        symbol = 'X' if self.turn else 'O'
+        self.board.makeMove(symbol, row, col)
+        
     
     def runGame(self):
         

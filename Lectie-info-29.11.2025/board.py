@@ -26,6 +26,11 @@ class Board:
         
         return True
     
+    def makeMove(self, symbol : str, row : int, col : int):
+        self.A[row][col] = symbol
+        
+
+    
     def winningPlayer(self): #False in cazul in care nu am un castigator si nici egalitate, simbolul castigatorului in caz ca am un castigator sau U in cazul in care este egalitate
         for i in range(self.row):                   # 1) fiecare combinatie pe linie
             ok = 1
