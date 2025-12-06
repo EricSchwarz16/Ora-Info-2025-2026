@@ -12,7 +12,8 @@ class XOGame:
     
     def runGame(self):
         
-        while self.board.isPlaying(): # Replace with isPlaying check
+        
+        while not self.board.winningPlayer(): 
             print(f"Player {'X'if self.turn == 1 else 'O '} is moving")
             row = int(input("Choose the row: "))
             col = int(input("Choose the col: "))
@@ -20,5 +21,6 @@ class XOGame:
             print(self.board)
             
         print(self.board.winningPlayer())
-            
+
+XOGame().runGame()     
             
