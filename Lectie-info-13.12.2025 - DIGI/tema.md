@@ -5,6 +5,7 @@
 
 + Query de intrare
     - create table(cod)
+    - Insert-uri
 
 Materiale:
     - DrawSQL
