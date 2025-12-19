@@ -20,9 +20,18 @@ class XOGame:
         
         while not self.board.winningPlayer(): 
             print(f"Player {'X'if self.turn == 1 else 'O '} is moving")
-            row = int(input("Choose the row: "))
-            col = int(input("Choose the col: "))
-            self.makeMove(row, col)
+            row = input("Choose the row: ")
+            col = input("Choose the col: ")
+
+            try:
+                row = int(row)
+                col = int(col)
+                self.makeMove(row, col)
+            
+            except ValueError:
+                # If ValueError occurs, this means `int()` failed (invalid input)
+                raise InvalidPositionException()
+            
             print(self.board)
             
         print(self.board.winningPlayer())

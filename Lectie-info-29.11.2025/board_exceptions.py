@@ -1,15 +1,17 @@
 class OutsideBoardException(Exception):
-    def __init__(self, message):
-        self.message = message
+    def __init__(self, message="The chosen position is outside the playing field"):
+        super().__init__(message)
+
+# invalid position -> implementare + adaugare
+class InvalidPositionException(Exception):
+    def __init__(self, message = "Row and column must be valid integers"):
+        super()._init_(message)
     
     def __init__(self):
-        self.message = "The chosen position is outside the playing field"
+        self.message = "The chosen position is invalid"
     
     def __str__(self):
         return self.message
-
-# invalid position -> implementare + adaugare
-    
 
 class AlreadyPlacedSymbolException(Exception):
     def __init__(self, message):
