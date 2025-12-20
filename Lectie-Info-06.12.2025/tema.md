@@ -4,7 +4,7 @@
 
 - implementat 2 joculete puse GitHub
     1) Obstruction ✅
-    2) MineSweeper (❌ mai trebuie lucrat... ERRORS)
+    2) MineSweeper ✅
 
 ------------
 Ora 13.12.2025 - ora de Digitechnikum(Baze de date, Frameworks, Vue, Node.js...) ✅
