@@ -65,8 +65,7 @@ class MinesweeperGame:
             k = int(input("Enter the number of bombs (k): "))
             y = int(input("Enter the number of lives per player (y): "))
         except ValueError:
-            print("Invalid input! Please enter valid integers.")
-            return  # Exit if input is invalid
+            raise InvalidPositionException()
         
         # Initialize the board with user inputs
         self.board = Board(n, m, k)  # Create a new board with the user-defined parameters
