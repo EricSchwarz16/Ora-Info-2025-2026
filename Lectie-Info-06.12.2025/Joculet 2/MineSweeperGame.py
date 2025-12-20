@@ -2,12 +2,12 @@ from board import Board
 from board_exceptions import *
 
 class MinesweeperGame:
-    def __init__(self, n, m, k, y):
-        # Initialize the game with the board and player settings
-        self.board = Board(n, m, k)  # Create the board with bombs placed
+    def __init__(self):
+        self.board = None  # We will initialize the board later with user input
         self.turn = 0  # Player 0 ('X') starts
-        self.lives = [y, y]  # Each player starts with 'y' lives
+        self.lives = [0, 0]  # We'll set the actual lives later
         self.players = ['X', 'O']  # Player symbols
+
     
     def switch_turn(self):
         """Switch turn between players."""
@@ -71,6 +71,9 @@ class MinesweeperGame:
         # Initialize the board with user inputs
         self.board = Board(n, m, k)  # Create a new board with the user-defined parameters
         
+        # Set player lives
+        self.lives = [y, y]  # Each player starts with 'y' lives
+        
         # Start the game loop after board setup
         while not self.is_game_over():
             self.display_board()  # Show the board after every turn
@@ -85,8 +88,7 @@ class MinesweeperGame:
                 self.make_move(row, col)
                 
             except ValueError:
-                print("Invalid input! Please enter valid row and column numbers.")  # Invalid input handling
-                continue  # Ask for input again if invalid
+                raise InvalidPositionException()
             
             # Switch turns after each move
             self.switch_turn()
@@ -95,6 +97,7 @@ class MinesweeperGame:
         self.display_board()
         print("Game Over!")
 
+
 # Start the game
-game = MinesweeperGame(0, 0, 0, 0)  # Dummy values, these will be set by user input
+game = MinesweeperGame()
 game.play()
