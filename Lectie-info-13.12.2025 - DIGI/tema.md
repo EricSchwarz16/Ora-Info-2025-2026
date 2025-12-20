@@ -7,6 +7,7 @@
     - create table(cod)
     - Insert-uri
 
+--> booking_plattform
 Materiale:
     - DrawSQL
     - Microsoft SQL Server Management Studio
