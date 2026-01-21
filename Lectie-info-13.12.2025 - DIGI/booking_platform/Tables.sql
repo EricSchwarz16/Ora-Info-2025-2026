@@ -53,6 +53,7 @@ VALUES
 (3, 1, '2025-12-21 10:00:00', 'pending'),  -- client_user (id = 3) books a consultation
 (3, 2, '2025-12-21 14:00:00', 'confirmed'); -- client_user (id = 3) books a massage
 
+
 CREATE TABLE Payments (
     id SERIAL PRIMARY KEY,
     appointment_id INT REFERENCES Appointments(id),
