@@ -86,6 +86,7 @@ def add_user():
     email = request.args.get('email')
     password = request.args.get('password')
 
+    print(name, email, password)
     data_base.add_user(name, email, password)
     return jsonify({"message": "Succes"}), 200
 
