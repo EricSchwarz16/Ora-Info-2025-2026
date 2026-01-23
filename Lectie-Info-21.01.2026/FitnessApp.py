@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import psycopg2
-from datetime import datetime
 
 
 app = Flask(__name__)
@@ -74,15 +73,13 @@ def get_activity_by_id():
 
 @app.route('/activity', methods=['POST'])
 def add_activity():
-    new_activity = request.get_json() or {}
-    # Default to today if the client does not send a date
-    date_value = new_activity.get('date') or datetime.utcnow().strftime('%Y-%m-%d')
+    new_activity = request.get_json()
     
     conn = psycopg2.connect(**DB_CONFIG)
     cursor = conn.cursor()
     cursor.execute(
         'INSERT INTO activities (calories, duration, date) VALUES (%s, %s, %s) RETURNING id',
-        (new_activity['calories'], new_activity['duration'], date_value)
+        (new_activity['calories'], new_activity['duration'], new_activity['date'])
     )
     activity_id = cursor.fetchone()[0]
     conn.commit()

@@ -1,5 +1,4 @@
 import requests
-from datetime import datetime
 
 urlActivities = "http://127.0.0.1:5000/activities"
 urlActivity = "http://127.0.0.1:5000/activity"
@@ -35,10 +34,7 @@ while True:
     elif option == "3":
         calories = int(input("Calories burnt: "))
         duration = int(input("Duration (minutes): "))
-        date = input("Date (DD-MM-YYYY) or press Enter for today: ")
-        
-        if not date:
-            date = datetime.now().strftime("%d-%m-%Y")
+        date = input("Date (DD-MM-YYYY): ")
         
         r = requests.post(urlActivity, json={"calories": calories, "duration": duration, "date": date})
         if r.status_code == 201:
