@@ -7,8 +7,8 @@ CORS(app)
 
 fees = [
 	{"id": 1, "value": 23, "date": "24-11-2014"},
-{"id": 2, "value": 43, "date": "24-11-2024"},
-{"id": 3, "value": 253, "date": "24-11-2020"}
+    {"id": 2, "value": 43, "date": "24-11-2024"},
+    {"id": 3, "value": 253, "date": "24-11-2020"}
 ]
 
 @app.route('/fees', methods=['GET'])
@@ -36,6 +36,33 @@ def delete_fee():
         if fee['id'] == fee_id:
             fees.remove(fee)
             return jsonify({"message": "Fee deleted"}), 200
+    return jsonify({"error": "Fee not found"}), 404
+
+# PUT -> schimbam tot
+@app.route('/fee', methods=['PUT'])
+def update_fee():
+    fee_id = request.args.get('id', type=int)
+    value = request.args.get('value', type=int)
+    date = request.args.get('date', type=str)
+    
+    for fee in fees:
+        if fee['id'] == fee_id:
+            fees.remove(fee)
+            fees.append({"id": fee_id, "value": value, "date": date})
+            return jsonify({"message": "Fee updated"}), 200
+    return jsonify({"error": "Fee not updated"}), 404
+
+# PATCH -> schimbam doar anumite campuri
+
+@app.route('/fee', methods=['PATCH'])
+def update_partial_fee():
+    fee_id = request.args.get('id', type=int)
+    value = request.args.get('value', type=int)
+    
+    for fee in fees:
+        if fee['id'] == fee_id:
+            fee['value'] = value
+            return jsonify({"message": "Fee updated"}), 200
     return jsonify({"error": "Fee not found"}), 404
 
 if __name__ == '__main__':

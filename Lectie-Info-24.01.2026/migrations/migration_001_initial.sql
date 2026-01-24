@@ -1,0 +1,13 @@
+CREATE TABLE Chat (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+);
+
+CREATE TABLE ChatMessage (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    chat_id INTEGER NOT NULL,
+    timestamp CURRENT_TIMESTAMP,
+    sender_id INTEGER NOT NULL,
+    content TEXT NOT NULL,
+    FOREIGN KEY (chat_id) REFERENCES Chat(id)
+);
