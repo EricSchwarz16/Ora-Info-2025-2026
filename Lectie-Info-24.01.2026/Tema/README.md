@@ -26,16 +26,16 @@ pip install -r requirements.txt
 ```
 
 ### 4. Configure Database Connection
-Edit `repository.py` if your PostgreSQL credentials are different:
-```python
-self.db_config = {
-    'host': 'localhost',
-    'database': 'tictactoe',
-    'user': 'postgres',      # Change if needed
-    'password': 'Ericpostgresql2025!',   # Change if needed
-    'port': 5432
-}
+Create a `.env` file in the project root with your PostgreSQL credentials:
+```env
+DB_HOST=localhost
+DB_NAME=tictactoe
+DB_USER=postgres
+DB_PASSWORD=your_password_here
+DB_PORT=5432
 ```
+
+**Note:** Never commit the `.env` file to version control! It contains sensitive credentials.
 
 ## Running the Game
 

@@ -35,42 +35,38 @@ def game_worker():
     while not stop_worker:
         time.sleep(1.5)
         
-        try:
-            response = requests.get(f"http://127.0.0.1:5000/game/{game_id}")
+        response = requests.get(f"http://127.0.0.1:5000/game/{game_id}")
+        
+        if response.status_code == 200:
+            game = response.json()
             
-            if response.status_code == 200:
-                game = response.json()
+            # Display board if it changed
+            if game['board'] != last_board:
+                last_board = game['board']
+                print("\n" + "="*30)
+                display_board(game['board'])
+                print("="*30)
+            
+            # Check if turn changed
+            if game['current_player'] != last_current_player and game['status'] == 'active':
+                last_current_player = game['current_player']
+                my_turn = (game['current_player'] == user_id)
+                if my_turn:
+                    print(f"\n>>> YOUR TURN! (You are {'X' if game['player1_id'] == user_id else 'O'})")
+                else:
+                    print("\n>>> Opponent's turn, waiting...")
                 
-                # Display board if it changed
-                if game['board'] != last_board:
-                    last_board = game['board']
-                    print("\n" + "="*30)
-                    display_board(game['board'])
-                    print("="*30)
-                
-                # Check if turn changed
-                if game['current_player'] != last_current_player and game['status'] == 'active':
-                    last_current_player = game['current_player']
-                    my_turn = (game['current_player'] == user_id)
-                    if my_turn:
-                        print(f"\n>>> YOUR TURN! (You are {'X' if game['player1_id'] == user_id else 'O'})")
+            # Check game status
+            if game['status'] == 'finished' and last_status != 'finished':
+                last_status = 'finished'
+                if game['winner_id']:
+                    if game['winner_id'] == user_id:
+                        print("\n🎉 YOU WON! 🎉")
                     else:
-                        print("\n>>> Opponent's turn, waiting...")
-                    
-                # Check game status
-                if game['status'] == 'finished' and last_status != 'finished':
-                    last_status = 'finished'
-                    if game['winner_id']:
-                        if game['winner_id'] == user_id:
-                            print("\n🎉 YOU WON! 🎉")
-                        else:
-                            print("\n😢 You lost!")
-                    else:
-                        print("\n🤝 It's a draw!")
-                    stop_worker = True
-                        
-        except Exception as e:
-            pass  # Silently handle errors to avoid spam
+                        print("\n😢 You lost!")
+                else:
+                    print("\n🤝 It's a draw!")
+                stop_worker = True
 
 print(f"Your Player ID: {user_id}")
 print("\n=== TicTacToe Game ===\n")
@@ -132,6 +128,7 @@ while True:
                                 print(f"❌ Invalid move: {response.json().get('error', 'Unknown error')}")
                             else:
                                 print("✓ Move made!")
+                                time.sleep(0.3)  # Brief pause before re-checking state
                         except ValueError:
                             print("❌ Please enter a valid number (1-9)")
                         except KeyboardInterrupt:
@@ -186,6 +183,7 @@ while True:
                                 print(f"❌ Invalid move: {response.json().get('error', 'Unknown error')}")
                             else:
                                 print("✓ Move made!")
+                                time.sleep(0.3)  # Brief pause before re-checking state
                         except ValueError:
                             print("❌ Please enter a valid number (1-9)")
                         except KeyboardInterrupt:

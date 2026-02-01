@@ -1,15 +1,20 @@
 import psycopg2
 from psycopg2.extras import RealDictCursor
+import os
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 class DbRepo:   
     def __init__(self, db_config: dict = None):
         if db_config is None:
             self.db_config = {
-                'host': 'localhost',
-                'database': 'tictactoe',
-                'user': 'postgres',
-                'password': 'Ericpostgresql2025!',
-                'port': 5432
+                'host': os.getenv('DB_HOST', 'localhost'),
+                'database': os.getenv('DB_NAME', 'tictactoe'),
+                'user': os.getenv('DB_USER', 'postgres'),
+                'password': os.getenv('DB_PASSWORD', 'postgres'),
+                'port': int(os.getenv('DB_PORT', 5432))
             }
         else:
             self.db_config = db_config
@@ -52,7 +57,7 @@ class DbRepo:
         conn.close()
     
     def make_move(self, game_id, player_id, position):
-        """Make a move on the board (position 0-8)"""
+        """Make a move on the board (position 1-9)"""
         conn = self.get_connection()
         cursor = conn.cursor()
         
