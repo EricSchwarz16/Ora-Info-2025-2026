@@ -5,13 +5,15 @@ import datetime
 import time
 user_id = random.randint(1, 100)
 global chatId 
-global chatMessages 
+global chatMessages
+stop_worker = False 
 
 def message_worker():
     global chatId 
-    global chatMessages 
+    global chatMessages
+    global stop_worker
     
-    while(True):
+    while(not stop_worker):
         time.sleep(1)
         messages = requests.get(f"http://127.0.0.1:5000/chat?id={chatId}").json()
         newMessages = []
@@ -20,7 +22,7 @@ def message_worker():
             ok = False
             
             for prevMessages in chatMessages:
-                if prevMessages[3] == message[3] and prevMessages[4] == message[4] and message[2] == message[2]:
+                if prevMessages[3] == message[3] and prevMessages[4] == message[4] and prevMessages[2] == message[2]:
                     ok = True
                     break
             
@@ -35,12 +37,12 @@ def message_worker():
 
 
 while(True):
-    
+    stop_worker = False
     chatId = int(input("Choose a chatId: "))
     
     #ne connectam la chat
     
-    chatMessages = requests.get(f"http://127.0.0.1:5000/chat?id={chatId}")
+    chatMessages = requests.get(f"http://127.0.0.1:5000/chat?id={chatId}").json()
     
     #worker care verifica mesaje noi
     worker = threading.Thread(target=message_worker)
@@ -52,6 +54,7 @@ while(True):
         option = input("Enter your option: ")
         
         if option == "0":
+            stop_worker = True
             worker.join() #inchidem subprogramul care da fetch la mesajele noi
             break
         elif option == "1":
