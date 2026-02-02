@@ -32,6 +32,9 @@ def broadcast_message(msg, sender_client):
         if c != sender_client:
             c.send(msg)
         
+# la fiecare 10 secunde, serverul transmite un cuvant pe chat
+# cine scrie cuvantul cat timp este inca valabil va primi un mesaj de congratulations -> (doar el va primi acel mesaj de la server)
+
 #accept conexiunile de la clienti
 if __name__ == "__main__":
     print("Server is listening...")
