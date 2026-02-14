@@ -10,7 +10,7 @@ random_number = str(random.randint(1, 1000)).encode('utf-8')
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((HOST, PORT))
 
-server.listen() # socketul serverului asctula requesturile
+server.listen() # socketul serverului asculta requesturile
 client = []
 
 # thread care se ocupa de conexiunea cu clientii -> asculta mesajele de la conexiune, iar in cazul in care primim un mesaj, il transmite la toti clientii
