@@ -1,10 +1,11 @@
 import socket
+from datetime import datetime
 import threading
 import time
 
 HOST = '127.0.0.1'
 PORT = 9090
-MAX_CLIENTS = 10
+MAX_CLIENTS = 2
 
 # Lista de intrebari si raspunsuri corecte
 QUESTIONS = [
@@ -108,9 +109,27 @@ class QuizServer:
             self.broadcast_message(question_msg)
             print(f"[QUESTION {i}] {q['question']}")
             
-            # Asteapta 60 secunde pentru raspunsuri
-            time.sleep(60)
+            # Asteapta 60 secunde pentru raspunsuri sau continuam cand le primit pe toate
+            # Verifica mereu cate raspunsuri avem
             
+            starttime = datetime.now().second #14:20:02
+            
+            while True:
+                currentTime = datetime.now().second # 14:20:03 -> 100 de ori
+                
+                if len(self.client_answers) == MAX_CLIENTS:
+                   #unlock lock_run_quiz
+                   break
+                
+                if currentTime - starttime > 20:
+                    break
+            
+            """
+                lock_run_quiz();
+                
+                -> thread nou care verifica
+            """
+                
             # Verifica raspunsurile si acorda puncte
             with self.client_lock:
                 for addr, answer in self.client_answers.items():
