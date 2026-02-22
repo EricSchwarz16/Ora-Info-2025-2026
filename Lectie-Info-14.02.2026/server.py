@@ -1,6 +1,6 @@
 
 # simulare monte carlo
-# asteptam 3 conexiunio
+# asteptam 2 conexiuni
 # 60 secunde rulam simularea cu clientii conectati
 # dam broadcast prin udp la rezultat -> cand clientii primesc -> opresc simularea
 
