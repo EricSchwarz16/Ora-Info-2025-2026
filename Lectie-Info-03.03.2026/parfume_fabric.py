@@ -24,14 +24,14 @@ def simulare_fabrica():
 
     lock.release()
 
-if __name__ == "main":
+if __name__ == "__main__":
     threads = []
-    
+    print("Start!")
     NUM_THREADS = random.randint(30, 50) * 3
     print(f"Avem {NUM_THREADS} Thread-uri")
 
     for id in range(NUM_THREADS):
-        thread = threading.Thread(target = simulare_fabrica, args = (id,), daemon = True)
+        thread = threading.Thread(target = simulare_fabrica, daemon = True)
         threads.append(thread)
         thread.start()
     
