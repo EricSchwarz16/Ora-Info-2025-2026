@@ -56,7 +56,7 @@ class CarWashMonitor:
         with self.state_lock:
             self.cars_inside += 1
             inside_now = self.cars_inside
-        self.log(f"Masina #{car_id} a intrat in spalatorie. In interior: {inside_now}/{self.max_cars}")
+        self.log(f"Masina #{car_id} a intrat in spalatorie. In interior: {inside_now}|{self.max_cars}")
 
     def update_inside_exit(self, car_id: int, paid: bool) -> None:
         with self.state_lock:
