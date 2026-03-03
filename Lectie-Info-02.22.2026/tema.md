@@ -1,0 +1,3 @@
+TEMA:
+
+O aplicatie care sa monitorizeze o spalatorie, lasand doar MAX_CARS masini inauntru si tinandu-le pe restul la bariera pana se elibereaza un loc. Cand vine vorba de bani, programul tau trebuie sa contorizeze incasarile de la masinile spalate. Fiecare masina sta un numar random de secunde (maxim 10) in spalatorie. Trebuie sa existe si un buton de panica: daca il apesi, aplicatia le da "cancel" celor de afara si le grabeste pe cele din interior spre iesire, golind imediat spalatoria (nu mai plateste nimeni nimic).
