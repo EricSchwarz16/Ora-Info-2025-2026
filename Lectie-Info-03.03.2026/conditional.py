@@ -51,19 +51,19 @@ while is_writing or reader_count > 0
 
 print("modific resursa")
     
-condition.notidy_all() #daca cineva e in asteptare paote sa vina
+condition.notify_all() #daca cineva e in asteptare poate sa vina
 -----------
 
 
 
 with condition: #blochez lockul din conditie
     while afara nu ploua:
-        condition.wait() -> deblochez lockul si threadul meu doarme pana cand primeste un semanl -> examplu 2 threaduri care stau aici si asteapta sa fie semnalate
+        condition.wait() -> deblochez lockul si threadul meu doarme pana cand primeste un semnal -> examplu 2 threaduri care stau aici si asteapta sa fie semnalate
         -> daca le dau notify_all se trezesc toate
 
 meteo_checker:
     while true:
         daca ploua:
-            condition.notify_all() -> trezeste taote threadurile care asteapta
+            condition.notify_all() -> trezeste toate threadurile care asteapta
             condition.notify_one()  -> trezeste un singur thread care asteapta
 """
