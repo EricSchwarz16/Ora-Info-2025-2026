@@ -1,0 +1,5 @@
+17) 
+Scrieti un program C care citeste de la tastatura un numar N si creeaza 2 thread-uri. Unul dintre thread-uri va genera un numar par si il va insera intr-un thread primit ca parametru. Celalalt thread va genera un numar impar si il va insera in acelasi sir de numere primit ca parametru. Implementati un mecanism de sincronizare intre cele 2 thread-uri astfel incat alterneaza in inserarea de numere in sir, pana cand sirul contine N numere.
+
+20) 
+Scrieti un program C care primeste ca argumente la linia de comanda 2 numere: N si M. Programul va simula o cursa intre N thread-uri care trebuie sa treaca prin M puncte de control. Prin fiecare punct de control thread-urile trebuie sa treaca pe rand (nu se poate ca 2 thread-uri sa fie simultan in acelasi punct de control). Fiecare thread care intra intr-un punct de control va astepta intre 100 si 200 de milisecunde (usleep(100000) face ca un thread sau proces sa astepte 100 de milisecunde) si va afisa un mesaj care va contine numarul thread-ului si numarul punctului de control, apoi va iesi din punctul de control. Fiecare thread va astepta pana cand toate thread-urile au fost create.

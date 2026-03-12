@@ -10,7 +10,7 @@ barrier = threading.Barrier(BARRIER_LIMIT)
 def simulare_pod(id):
     global barrier
     
-    print(f"Am ajuns la bariera, astept sa se dechida! Thread id: {id}")
+    print(f"Am ajuns la bariera, astept sa se deschida! Thread id: {id}")
     arrive_time = random.randint(0, 5)
     time.sleep(arrive_time)
     
