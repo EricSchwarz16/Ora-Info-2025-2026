@@ -4,6 +4,18 @@ import threading
 import time
 
 
+"""
+Scrieti un program C care primeste ca argumente la linia de comanda 
+2 numere: N si M. Programul va simula o cursa intre N thread-uri care 
+trebuie sa treaca prin M puncte de control. Prin fiecare punct de control 
+thread-urile trebuie sa treaca pe rand (nu se poate ca 2 thread-uri sa fie 
+simultan in acelasi punct de control). Fiecare thread care intra intr-un punct 
+de control va astepta intre 100 si 200 de milisecunde (usleep(100000) face 
+ca un thread sau proces sa astepte 100 de milisecunde) si va afisa un mesaj care 
+va contine numarul thread-ului si numarul punctului de control, apoi va iesi din punctul de control. 
+Fiecare thread va astepta pana cand toate thread-urile au fost create.
+"""
+
 def run_thread(thread_id, checkpoints_count, checkpoint_locks, start_barrier):
     print(f"Thread {thread_id} is waiting...")
     start_barrier.wait()
