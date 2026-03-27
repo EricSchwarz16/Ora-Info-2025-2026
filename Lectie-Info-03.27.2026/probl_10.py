@@ -2,12 +2,13 @@ from multiprocessing import Process, Pipe
 import random
 
 def process_child(conn):
-        nr = conn.recv()
-        while nr < 5:
+        while True:
+            nr = conn.recv()
             nr /= 2
             print(f"Valoarea lui n este {nr}")
             conn.send(nr)
-            nr = conn.recv()
+            if nr < 5:
+                break
     
 
 if __name__ == "__main__":
@@ -16,7 +17,7 @@ if __name__ == "__main__":
     parent_conn, child_conn = Pipe()
     p = Process(target = process_child, args = (child_conn,))
     p.start()
-    while nr < 5:
+    while nr > 5:
         
         if nr % 2 == 0:
             parent_conn.send(nr)
@@ -28,4 +29,5 @@ if __name__ == "__main__":
 
         nr = parent_conn.recv()
     
+    p.join()
     parent_conn.close() 
