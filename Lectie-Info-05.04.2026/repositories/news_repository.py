@@ -20,6 +20,20 @@ class NewsRepository:
                 cur.execute("SELECT * FROM news WHERE id = %s", (news_id,))
                 return cur.fetchone()
 
+    def get_views_by_id(self, id):
+        query = """
+            SELECT n.*, COUNT(v.id) as total_views
+            FROM news n
+            LEFT JOIN views v ON n.id = v.news_id
+            WHERE n.id = %s
+            GROUP BY n.id
+        """
+
+        with get_connection() as conn:
+            with conn.cursor() as cur:
+                cur.execute(query, (id, ))
+                return cur.fetchall()
+            
     def get_all(self):
         with get_connection() as conn:
             with conn.cursor() as cur:

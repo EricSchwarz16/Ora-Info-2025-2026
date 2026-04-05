@@ -1,4 +1,4 @@
-from news_repository import NewsRepository
+from repositories.news_repository import NewsRepository
 import random
 import datetime
 
