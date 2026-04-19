@@ -5,9 +5,3 @@ CREATE TABLE IF NOT EXISTS news (
     content TEXT,
     photo VARCHAR(500)
 );
-
-CREATE TABLE IF NOT EXISTS views (
-    id SERIAL PRIMARY KEY,
-    date DATE DEFAULT CURRENT_DATE,
-    news_id INTEGER REFERENCES news(id)
-);

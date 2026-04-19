@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS videos(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    date DATE DEFAULT CURRENT_DATE,
+    author VARCHAR(255),
+    content TEXT,
+    URL VARCHAR(500)
+);
+
