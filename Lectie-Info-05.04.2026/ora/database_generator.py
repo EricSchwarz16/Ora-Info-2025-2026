@@ -6,7 +6,6 @@ NEWS_NUMBER = 97
 timeframes = [1, 7, 30]
 count = 4
 
-"""
 for _ in range(NEWS_NUMBER):
     title = f"Stire-{count}"
     descriere = f"descriere-{count}"
@@ -16,7 +15,6 @@ for _ in range(NEWS_NUMBER):
     print(f"Adaug stirea {title}")
     NewsRepository().add(title, descriere, content, photo)
     count += 1
-"""
 
 for timeframe in timeframes:
     for _ in range(1000):
