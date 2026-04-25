@@ -32,6 +32,7 @@ def videos_server(option):
                 break
             chunks.append(chunk)
         msg = b''.join(chunks)
+        
         print(f"{msg.decode('utf-8')}")
         conn.sendall(msg)
         conn.close()
