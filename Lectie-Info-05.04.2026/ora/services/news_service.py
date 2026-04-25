@@ -30,7 +30,7 @@ def news_server(option: int):
         print("Am trimis requestul")
         msg = client.recv(1024) #primesc mesaj de la cache
         
-        #aratama ce am primit
+        #aratam ce am primit
         print(f"{msg.decode('utf-8')}")
         
         conn.sendall(msg)

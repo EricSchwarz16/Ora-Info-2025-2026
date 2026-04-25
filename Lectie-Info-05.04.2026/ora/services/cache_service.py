@@ -32,7 +32,7 @@ def handle_client(conn, addr, option):
     decoded_msg = msg.decode('utf-8')
     if decoded_msg == 'req':
         news_to_send = cache[option]
-        #news_to_send -> dict
+        #news_to_send -> list of tuples
         encoded_news = json.dumps(news_to_send).encode()
         print("Acum trimit mesajul")
         conn.sendall(encoded_news)
@@ -49,11 +49,10 @@ def send_news(option: int):
     server.bind((HOST, PORT))
     server.listen()
     print(f"Am inceput sa ascultam pentru {timeframes[option]} zile")
-    client = []
     
     while True:
         conn, addr = server.accept() 
-        client.append(conn)
+        print("Un client s-a conectat")
         
         # deschid thread care se ocupa de clienti
         

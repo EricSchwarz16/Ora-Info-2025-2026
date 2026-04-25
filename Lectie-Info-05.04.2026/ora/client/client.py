@@ -1,6 +1,6 @@
 import sys, os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from constants.constants import K, tcp_ports_news, timeframes
+from constants.constants import K, tcp_ports_news
 import socket
 
 def get_message(option: int):
@@ -25,11 +25,13 @@ if __name__ == "__main__":
         
         #mimam api gatewayu
         if option == "1":
-            #deschidem conexiune cu news_service ce se ocupa de timeframeu; de o zi
+            #deschidem conexiune cu news_service ce se ocupa de timeframeu de o zi
             print(get_message(0))
         elif option == "2":
+            #deschidem conexiune cu news_service ce se ocupa de timeframeu de 7 zile
             print(get_message(1))
         elif option == "3":
+            #deschidem conexiune cu news_service ce se ocupa de timeframeu de 30 zile
             print(get_message(2))
         else:
             break
