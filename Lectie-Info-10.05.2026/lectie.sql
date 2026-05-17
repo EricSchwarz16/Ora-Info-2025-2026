@@ -119,7 +119,7 @@ SELECT * FROM customer_spending;
  
  
  
- 
+ --- CONSTRAINTS
  
  
 SELECT * FROM customers
