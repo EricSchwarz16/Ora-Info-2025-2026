@@ -1,4 +1,5 @@
-1) Window function
-2) Advanced Select
-3) String Functions 
-4) Regex/Clause
+1) Window functions
+2) String Functions 
+3) Regex/Clause 
+
+-- Regex facut pe 4 Iunie
